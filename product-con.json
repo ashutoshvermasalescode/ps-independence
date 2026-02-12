@@ -1,0 +1,11 @@
+{
+  "id": "$.wrapperLevel1.wrapperLevel2.wrapperLevel3.payload.data.result.actualProduct.containerA.containerB.containerC.containerD.product.id",
+  "skuCode": "$.wrapperLevel1.wrapperLevel2.wrapperLevel3.payload.data.result.actualProduct.containerA.containerB.containerC.containerD.product.skuCode",
+  "batchCode": "$.wrapperLevel1.wrapperLevel2.wrapperLevel3.payload.data.result.actualProduct.containerA.containerB.containerC.containerD.product.batchCode",
+  "productCode": "$.wrapperLevel1.wrapperLevel2.wrapperLevel3.payload.data.result.actualProduct.containerA.containerB.containerC.containerD.product.productCode",
+  "mrp": "$.wrapperLevel1.wrapperLevel2.wrapperLevel3.payload.data.result.actualProduct.containerA.containerB.containerC.containerD.product.mrp",
+  "caseToPieceQuantity": "$.wrapperLevel1.wrapperLevel2.wrapperLevel3.payload.data.result.actualProduct.containerA.containerB.containerC.containerD.product.inventory.wrappers.w1.w2.w3.caseToPieceQuantity",
+  "warehouseId": "$.wrapperLevel1.wrapperLevel2.wrapperLevel3.payload.data.result.actualProduct.containerA.containerB.containerC.containerD.product.inventory.wrappers.w1.w2.w3.warehouseStock[0].value.warehouseId",
+  "lat": "$.wrapperLevel1.wrapperLevel2.wrapperLevel3.payload.data.result.actualProduct.containerA.containerB.containerC.containerD.product.inventory.wrappers.w1.w2.w3.warehouseStock[0].value.location.geo.coords.lat",
+  "lng": "$.wrapperLevel1.wrapperLevel2.wrapperLevel3.payload.data.result.actualProduct.containerA.containerB.containerC.containerD.product.inventory.wrappers.w1.w2.w3.warehouseStock[0].value.location.geo.coords.lng"
+}

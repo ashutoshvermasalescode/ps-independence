@@ -1,0 +1,5 @@
+{
+  "filter1": "$.level0.level1.level2.payload.data.response.result.outletWrapper.outerContainer.innerContainer.actualData.featuresWrapper.features[0][0].wrapperA.wrapperB.wrapperC.feature.outlet.identifiers.code",
+  "filter2": "$.level0.level1.level2.payload.data.response.result.outletWrapper.outerContainer.innerContainer.actualData.featuresWrapper.features[0][0].wrapperA.wrapperB.wrapperC.feature.outlet.type.primary",
+  "filter3": "$.level0.level1.level2.payload.data.response.result.outletWrapper.outerContainer.innerContainer.actualData.featuresWrapper.features[0][0].wrapperA.wrapperB.wrapperC.feature.classification.channel.primary"
+}

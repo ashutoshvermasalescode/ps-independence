@@ -1,0 +1,178 @@
+{
+  "level0": {
+    "level1": {
+      "level2": {
+        "context": {
+          "request": {
+            "meta": {
+              "debug": {
+                "trace": {
+                  "traceId": "trace-outlet-001",
+                  "path": ["start", ["middle", ["deeper", ["deepest"]]]]
+                }
+              }
+            }
+          }
+        },
+        "payload": {
+          "data": {
+            "response": {
+              "result": {
+                "outletWrapper": {
+                  "outerContainer": {
+                    "innerContainer": {
+                      "actualData": {
+                        "featuresWrapper": {
+                          "features": [
+                            [
+                              {
+                                "wrapperA": {
+                                  "wrapperB": {
+                                    "wrapperC": {
+                                      "feature": {
+                                        "createdBy": "*******",
+                                        "modifiedBy": "*******",
+                                        "creationTime": {
+                                          "value": {
+                                            "ts": "2025-05-08 19:28:43"
+                                          }
+                                        },
+                                        "lastModifiedTime": {
+                                          "value": {
+                                            "ts": "2025-05-08 19:28:43"
+                                          }
+                                        },
+                                        "lob": "niineuat",
+                                        "id": "00d5ae95-cd57-45b8-819d-2d7d991e86b1",
+                                        "activeStatus": {
+                                          "current": {
+                                            "state": "active",
+                                            "reason": "active"
+                                          }
+                                        },
+                                        "version": {
+                                          "current": { "value": 1 }
+                                        },
+                                        "changes": {
+                                          "history": {
+                                            "items": []
+                                          }
+                                        },
+                                        "changed": {
+                                          "flag": true
+                                        },
+                                        "extendedAttributes": {
+                                          "wrapper": {
+                                            "supplier": {
+                                              "list": []
+                                            },
+                                            "parent": {
+                                              "layer1": {
+                                                "layer2": {
+                                                  "layer3": {
+                                                    "key": "parent-0-1-id",
+                                                    "value": "GT0100020064900002006490"
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "outlet": {
+                                          "identifiers": {
+                                            "code": "1104165098"
+                                          },
+                                          "names": {
+                                            "beatName": "",
+                                            "outletName": "JACKS UNISEX SALON"
+                                          },
+                                          "type": {
+                                            "primary": "RR"
+                                          }
+                                        },
+                                        "addressing": {
+                                          "address": {
+                                            "raw": "P443 J8X, Pocket G-29, Sector 3GRohini,Delhi",
+                                            "parsed": {
+                                              "city": "Delhi",
+                                              "state": "Delhi",
+                                              "country": "India"
+                                            }
+                                          },
+                                          "contact": {
+                                            "phone": {
+                                              "primary": "9910798691"
+                                            }
+                                          }
+                                        },
+                                        "mapping": {
+                                          "mapped": false,
+                                          "parents": {
+                                            "immediateParent": "",
+                                            "hierarchy": {
+                                              "raw": "GT0100020064900002006490 > admin@applicate.in",
+                                              "normalized": "UadminapplicateinU>UGT0100020064900002006490U"
+                                            }
+                                          }
+                                        },
+                                        "routing": {
+                                          "routeInfoList": {
+                                            "wrappers": []
+                                          }
+                                        },
+                                        "geo": {
+                                          "coordinates": {
+                                            "lat": {
+                                              "value": 28.7065403
+                                            },
+                                            "lng": {
+                                              "value": 77.1032983
+                                            }
+                                          },
+                                          "location": {
+                                            "path": "560055 > bengaluru > karnataka > INDIA"
+                                          }
+                                        },
+                                        "classification": {
+                                          "outletCategory": "RA-UNISEX",
+                                          "outletClass": "A",
+                                          "channel": {
+                                            "primary": "PR",
+                                            "sub": "FMCG-RAAGA"
+                                          },
+                                          "distributionChannel": ""
+                                        },
+                                        "commercial": {
+                                          "account": "",
+                                          "tinNo": "",
+                                          "gstNo": "",
+                                          "market": {
+                                            "name": "",
+                                            "id": ""
+                                          },
+                                          "priceListId": "RR"
+                                        },
+                                        "flags": {
+                                          "newOutlet": false,
+                                          "create": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

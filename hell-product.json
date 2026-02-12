@@ -1,0 +1,210 @@
+{
+  "wrapperLevel1": {
+    "wrapperLevel2": {
+      "wrapperLevel3": {
+        "meta": {
+          "request": {
+            "context": {
+              "debug": {
+                "trace": {
+                  "id": "trace-001",
+                  "depth": 999,
+                  "notes": ["why", ["is", ["this", ["nested", ["so", ["much"]]]]]]
+                }
+              }
+            }
+          }
+        },
+        "payload": {
+          "data": {
+            "result": {
+              "actualProduct": {
+                "containerA": {
+                  "containerB": {
+                    "containerC": {
+                      "containerD": {
+                        "product": {
+                          "id": "cdc85e82-6ec7-4cd3-9343-663b32a35971",
+                          "activeStatus": "active",
+                          "skuCode": "900400001",
+                          "batchCode": "900400001",
+                          "productCode": "DC 6s Regular Fluff",
+                          "skuDescription": "Niine Sanitary Napkins 230MM Fluff MRP Rs. 25/PKT (84PKT X 7PCS)",
+                          "category": "Sanitary Napkin",
+                          "subCategory": "Fluff",
+                          "brand": "Dry Comfort",
+                          "pieceSize": "Regular",
+                          "uom": "",
+                          "mrp": 25.0,
+                          "caseMrp": 0.0,
+                          "otherUnitMrp": 0.0,
+
+                          "inventory": {
+                            "wrappers": {
+                              "w1": {
+                                "w2": {
+                                  "w3": {
+                                    "caseToPieceQuantity": 84.0,
+                                    "caseToOtherUnitQuantity": 0.0,
+                                    "otherUnitToPieceQuantity": 0.0,
+                                    "pieceToOtherUnitQuantity": 0.0,
+                                    "warehouseStock": [
+                                      {
+                                        "meta": { "level": 1 },
+                                        "value": {
+                                          "warehouseId": "WH-001",
+                                          "location": {
+                                            "geo": {
+                                              "coords": {
+                                                "lat": 19.076,
+                                                "lng": 72.8777
+                                              }
+                                            }
+                                          },
+                                          "zones": [
+                                            {
+                                              "zoneWrapper": {
+                                                "zone": {
+                                                  "name": "A1",
+                                                  "racks": [
+                                                    {
+                                                      "rackWrapper": {
+                                                        "rack": {
+                                                          "rackId": "R1",
+                                                          "bins": [
+                                                            {
+                                                              "binWrapper": {
+                                                                "bin": {
+                                                                  "binId": "B1",
+                                                                  "qty": 10
+                                                                }
+                                                              }
+                                                            },
+                                                            {
+                                                              "binWrapper": {
+                                                                "bin": {
+                                                                  "binId": "B2",
+                                                                  "qty": 0
+                                                                }
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          },
+
+                          "uniqueCodes": {
+                            "layer1": {
+                              "layer2": {
+                                "layer3": {
+                                  "layer4": {
+                                    "serials": ["SN-001", ["SN-002", ["SN-003"]]],
+                                    "qr": {
+                                      "wrapper": {
+                                        "format": "base64",
+                                        "value": "iVBORw0KGgoAAAANSUhEUgAAAAUA"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+
+                          "auditTrail": [
+                            {
+                              "wrapper": {
+                                "event": {
+                                  "type": "CREATED",
+                                  "at": "2025-11-10T10:11:12Z",
+                                  "by": {
+                                    "user": {
+                                      "id": "u123",
+                                      "role": "SYSTEM"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "wrapper": {
+                                "event": {
+                                  "type": "UPDATED",
+                                  "at": "2026-01-01T01:02:03Z",
+                                  "by": {
+                                    "user": {
+                                      "id": "u456",
+                                      "role": "ADMIN"
+                                    }
+                                  },
+                                  "diff": {
+                                    "mrp": {
+                                      "before": { "value": 24.0 },
+                                      "after": { "value": 25.0 }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+
+                          "meaninglessNesting": {
+                            "a": {
+                              "b": {
+                                "c": {
+                                  "d": {
+                                    "e": {
+                                      "f": {
+                                        "g": {
+                                          "h": {
+                                            "i": {
+                                              "j": {
+                                                "k": {
+                                                  "l": {
+                                                    "m": {
+                                                      "n": {
+                                                        "o": {
+                                                          "p": "congrats, you parsed this 🎉"
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
