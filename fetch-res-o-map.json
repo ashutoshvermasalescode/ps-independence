@@ -1,0 +1,5 @@
+{
+  "outletCode": "$.data[*].outletInfo[*].filter1",
+  "outletType": "$.data[*].outletInfo[*].filter2",
+  "channel": "$.data[*].outletInfo[*].filter3"
+}

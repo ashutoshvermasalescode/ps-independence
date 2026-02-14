@@ -1,0 +1,5 @@
+{
+  "batchCode": "$.data[*].productInfo[*].filter1",
+  "productCode": "$.data[*].productInfo[*].filter2",
+  "mrp": "$.data[*].productInfo[*].filter3"
+}

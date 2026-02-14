@@ -10,13 +10,16 @@ app.use(express.json());
 // Load JSON files once at startup
 const hellProductPath = path.join(__dirname, /*"data",*/ "hell-product.json");
 const hellOutletPath = path.join(__dirname, /*"data",*/ "hell-outlet.json");
+const productsPath = path.join(__dirname, /*"data",*/ "products.json");
 
 let hellProduct;
 let hellOutlet;
+let products;
 
 try {
   hellProduct = JSON.parse(fs.readFileSync(hellProductPath, "utf8"));
   hellOutlet = JSON.parse(fs.readFileSync(hellOutletPath, "utf8"));
+  products = JSON.parse(fs.readFileSync(productsPath, "utf8"));
   console.log("Hell JSON payloads loaded successfully 😈");
 } catch (err) {
   console.error("Failed to load hell JSON files:", err);
@@ -36,6 +39,10 @@ app.get("/api/product/hell", (req, res) => {
 // Outlet hell endpoint
 app.get("/api/outlet/hell", (req, res) => {
   res.json(hellOutlet);
+});
+
+app.get("/api/products/portal", (req, res) => {
+  res.json(products);
 });
 
 // Optional chaos mode toggle via query param
