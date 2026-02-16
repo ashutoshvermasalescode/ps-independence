@@ -1,0 +1,52 @@
+[
+  {
+    "outletCode": "OUT001",
+    "outletType": "RETAIL",
+    "channel": "URBAN"
+  },
+  {
+    "outletCode": "OUT002",
+    "outletType": "DISTRIBUTOR",
+    "channel": "RURAL"
+  },
+  {
+    "outletCode": "OUT003",
+    "outletType": "RETAIL",
+    "channel": "SEMI_URBAN"
+  },
+  {
+    "outletCode": "OUT004",
+    "outletType": "WHOLESALE",
+    "channel": "HIGH_FOOTFALL"
+  },
+  {
+    "outletCode": "OUT005",
+    "outletType": "RETAIL",
+    "channel": "LOW_FOOTFALL"
+  },
+  {
+    "outletCode": "OUT006",
+    "outletType": "ONLINE",
+    "channel": "E_COMMERCE_PARTNER"
+  },
+  {
+    "outletCode": "OUT007",
+    "outletType": "DISTRIBUTOR",
+    "channel": "BULK_BUYER"
+  },
+  {
+    "outletCode": "OUT008",
+    "outletType": "RETAIL",
+    "channel": "PREMIUM_ZONE"
+  },
+  {
+    "outletCode": "OUT009",
+    "outletType": "FRANCHISE",
+    "channel": "TIER_2_CITY"
+  },
+  {
+    "outletCode": "OUT010",
+    "outletType": "RETAIL",
+    "channel": "NEAR_HIGHWAY"
+  }
+]
