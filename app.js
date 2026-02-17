@@ -36,17 +36,14 @@ try {
 // Utils
 // ------------------------------------
 
-function filterOutlets(outlets, filters = {}) {
-  const {
-    outletCode = [],
-    outletType = [],
-    channel = [],
-    regex = ""
-  } = filters;
-
-  const codeSet = new Set(Array.isArray(outletCode) ? outletCode : []);
-  const typeSet = new Set(Array.isArray(outletType) ? outletType : []);
-  const channelSet = new Set(Array.isArray(channel) ? channel : []);
+function filterOutlets(outlets, { outletCode = [], regex = "" } = {}) {
+  const codeSet = new Set(
+    Array.isArray(outletCode)
+      ? outletCode
+      : outletCode
+      ? [outletCode]
+      : []
+  );
 
   const regexObj = regex ? new RegExp(regex, "i") : null;
 
@@ -54,19 +51,10 @@ function filterOutlets(outlets, filters = {}) {
     const codeMatch =
       codeSet.size === 0 || codeSet.has(outlet.outletCode);
 
-    const typeMatch =
-      typeSet.size === 0 || typeSet.has(outlet.outletType);
-
-    const channelMatch =
-      channelSet.size === 0 || channelSet.has(outlet.channel);
-
     const regexMatch =
-      !regexObj ||
-      regexObj.test(outlet.outletCode) ||
-      regexObj.test(outlet.outletType) ||
-      regexObj.test(outlet.channel);
+      !regexObj || regexObj.test(outlet.outletCode);
 
-    return codeMatch && typeMatch && channelMatch && regexMatch;
+    return codeMatch && regexMatch;
   });
 }
 
@@ -74,13 +62,12 @@ function filterOutlets(outlets, filters = {}) {
 // Routes
 // ------------------------------------
 
-// Health check
 app.get("/", (req, res) => {
   res.send("Mock API server is up and serving cursed JSON 🚀");
 });
 
 // ------------------------------------
-// Product & Outlet Core APIs
+// Core APIs
 // ------------------------------------
 
 app.get("/api/product/hell", (req, res) => {
@@ -96,18 +83,32 @@ app.get("/api/products/portal", (req, res) => {
 });
 
 // ------------------------------------
-// Filter outlets (returns FULL OBJECTS)
+// FILTER (Regex applied on outletCode)
 // ------------------------------------
 
 app.post("/api/outlets/filter", (req, res) => {
   try {
-    const filters = req.body;
-    const result = filterOutlets(outlets, filters);
+    const { regex = "" } = req.body;
+
+    const regexObj = regex ? new RegExp(regex, "i") : null;
+
+    const filteredCodes = outlets
+      .filter(outlet => {
+        if (!regexObj) return true;
+
+        return (
+          regexObj.test(outlet.outletCode) ||
+          regexObj.test(outlet.outletType) ||
+          regexObj.test(outlet.channel)
+        );
+      })
+      .map(outlet => outlet.outletCode)
+      .filter(Boolean);
 
     res.json({
-      count: result.length,
-      data: result
+      outletCode: filteredCodes
     });
+
   } catch (err) {
     console.error("Outlet filter failed:", err);
     res.status(500).json({ error: "Outlet filtering exploded 💥" });
@@ -115,85 +116,25 @@ app.post("/api/outlets/filter", (req, res) => {
 });
 
 // ------------------------------------
-// NEW: Fetch distinct outletType values
+// Fetch ALL outletTypes (canonical)
 // ------------------------------------
 
 app.get("/api/outlets/outletType", (req, res) => {
-  try {
-    const uniqueTypes = [
-      ...new Set(outlets.map(o => o.outletType).filter(Boolean))
-    ];
-
-    res.json({
-      count: uniqueTypes.length,
-      data: uniqueTypes
-    });
-  } catch (err) {
-    console.error("Fetching outletTypes failed:", err);
-    res.status(500).json({ error: "OutletType extraction failed 💥" });
-  }
+  const response = outlets.map(o => ({
+    outletType: o.outletType
+  }));
+  res.json(response);
 });
 
 // ------------------------------------
-// NEW: Fetch distinct channel values
+// Fetch ALL channels (canonical)
 // ------------------------------------
 
 app.get("/api/outlets/channel", (req, res) => {
-  try {
-    const uniqueChannels = [
-      ...new Set(outlets.map(o => o.channel).filter(Boolean))
-    ];
-
-    res.json({
-      count: uniqueChannels.length,
-      data: uniqueChannels
-    });
-  } catch (err) {
-    console.error("Fetching channels failed:", err);
-    res.status(500).json({ error: "Channel extraction failed 💥" });
-  }
-});
-
-// ------------------------------------
-// Chaos product endpoint
-// ------------------------------------
-
-app.get("/api/chaos/product", async (req, res) => {
-  const delayMs = Number(req.query.delayMs || 0);
-  const failRate = Number(req.query.failRate || 0);
-
-  if (delayMs > 0) {
-    await new Promise(r => setTimeout(r, delayMs));
-  }
-
-  if (failRate > 0 && Math.random() < failRate) {
-    return res.status(500).json({
-      error: "Random product service meltdown 🔥"
-    });
-  }
-
-  res.json(hellProduct);
-});
-
-// ------------------------------------
-// Chaos outlet endpoint
-// ------------------------------------
-
-app.get("/api/chaos/outlet", async (req, res) => {
-  const delayMs = Number(req.query.delayMs || 0);
-  const failRate = Number(req.query.failRate || 0);
-
-  if (delayMs > 0) {
-    await new Promise(r => setTimeout(r, delayMs));
-  }
-
-  if (failRate > 0 && Math.random() < failRate) {
-    return res.status(502).json({
-      error: "Outlet service having a bad day 😵"
-    });
-  }
-
-  res.json(hellOutlet);
+  const response = outlets.map(o => ({
+    channel: o.channel
+  }));
+  res.json(response);
 });
 
 // ------------------------------------
