@@ -7,7 +7,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// ------------------------------------
 // Load JSON files once at startup
+// ------------------------------------
+
 const hellProductPath = path.join(__dirname, "hell-product.json");
 const hellOutletPath = path.join(__dirname, "hell-outlet.json");
 const productsPath = path.join(__dirname, "products.json");
@@ -25,7 +28,7 @@ try {
   outlets = JSON.parse(fs.readFileSync(outletsPath, "utf8"));
   console.log("Hell JSON payloads loaded successfully 😈");
 } catch (err) {
-  console.error("Failed to load hell JSON files:", err);
+  console.error("Failed to load JSON files:", err);
   process.exit(1);
 }
 
@@ -76,26 +79,29 @@ app.get("/", (req, res) => {
   res.send("Mock API server is up and serving cursed JSON 🚀");
 });
 
-// Product hell endpoint
+// ------------------------------------
+// Product & Outlet Core APIs
+// ------------------------------------
+
 app.get("/api/product/hell", (req, res) => {
   res.json(hellProduct);
 });
 
-// Outlet hell endpoint
 app.get("/api/outlet/hell", (req, res) => {
   res.json(hellOutlet);
 });
 
-// Products portal endpoint
 app.get("/api/products/portal", (req, res) => {
   res.json(products);
 });
 
-// Filter outlets (FULL OBJECTS RETURNED)
+// ------------------------------------
+// Filter outlets (returns FULL OBJECTS)
+// ------------------------------------
+
 app.post("/api/outlets/filter", (req, res) => {
   try {
     const filters = req.body;
-
     const result = filterOutlets(outlets, filters);
 
     res.json({
@@ -108,7 +114,50 @@ app.post("/api/outlets/filter", (req, res) => {
   }
 });
 
+// ------------------------------------
+// NEW: Fetch distinct outletType values
+// ------------------------------------
+
+app.get("/api/outlets/outletType", (req, res) => {
+  try {
+    const uniqueTypes = [
+      ...new Set(outlets.map(o => o.outletType).filter(Boolean))
+    ];
+
+    res.json({
+      count: uniqueTypes.length,
+      data: uniqueTypes
+    });
+  } catch (err) {
+    console.error("Fetching outletTypes failed:", err);
+    res.status(500).json({ error: "OutletType extraction failed 💥" });
+  }
+});
+
+// ------------------------------------
+// NEW: Fetch distinct channel values
+// ------------------------------------
+
+app.get("/api/outlets/channel", (req, res) => {
+  try {
+    const uniqueChannels = [
+      ...new Set(outlets.map(o => o.channel).filter(Boolean))
+    ];
+
+    res.json({
+      count: uniqueChannels.length,
+      data: uniqueChannels
+    });
+  } catch (err) {
+    console.error("Fetching channels failed:", err);
+    res.status(500).json({ error: "Channel extraction failed 💥" });
+  }
+});
+
+// ------------------------------------
 // Chaos product endpoint
+// ------------------------------------
+
 app.get("/api/chaos/product", async (req, res) => {
   const delayMs = Number(req.query.delayMs || 0);
   const failRate = Number(req.query.failRate || 0);
@@ -118,13 +167,18 @@ app.get("/api/chaos/product", async (req, res) => {
   }
 
   if (failRate > 0 && Math.random() < failRate) {
-    return res.status(500).json({ error: "Random product service meltdown 🔥" });
+    return res.status(500).json({
+      error: "Random product service meltdown 🔥"
+    });
   }
 
   res.json(hellProduct);
 });
 
+// ------------------------------------
 // Chaos outlet endpoint
+// ------------------------------------
+
 app.get("/api/chaos/outlet", async (req, res) => {
   const delayMs = Number(req.query.delayMs || 0);
   const failRate = Number(req.query.failRate || 0);
@@ -134,7 +188,9 @@ app.get("/api/chaos/outlet", async (req, res) => {
   }
 
   if (failRate > 0 && Math.random() < failRate) {
-    return res.status(502).json({ error: "Outlet service having a bad day 😵" });
+    return res.status(502).json({
+      error: "Outlet service having a bad day 😵"
+    });
   }
 
   res.json(hellOutlet);
